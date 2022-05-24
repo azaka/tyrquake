@@ -109,7 +109,9 @@ struct SceNetInAddr inet_aton(const char *ip_addr);
 #include <netinet/in.h>
 
 #ifndef __PSL1GHT__
+#ifndef __GCCE__
 #include <netinet/tcp.h>
+#endif
 #endif
 
 #include <arpa/inet.h>

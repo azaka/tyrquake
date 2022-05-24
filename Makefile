@@ -170,6 +170,16 @@ else ifeq ($(platform), qnx)
 	CC = qcc -Vgcc_ntoarmv7le
 	AR = qcc -Vgcc_ntoarmv7le
 	CFLAGS += -D__BLACKBERRY_QNX__ -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+else ifeq ($(platform), gcce)
+        EXT=a
+        TARGET := $(TARGET_NAME)_libretro_$(platform).$(EXT)
+        CC = arm-none-symbianelf-gcc$(EXE_EXT)
+        CXX = arm-none-symbianelf-gcc$(EXE_EXT)
+        CC_AS = arm-none-symbianelf-gcc$(EXE_EXT)
+        AR = arm-none-symbianelf-ar$(EXE_EXT)
+        #     PLATFORM_DEFINES +=
+        STATIC_LINKING = 1
+	HAVE_NETWORKING=0
 
 # PS3
 else ifeq ($(platform), ps3)

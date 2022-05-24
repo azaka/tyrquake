@@ -57,6 +57,10 @@ void *_alloca(size_t size);
 #  define alloca _alloca
 #endif
 
+#if defined(__GCCE__)
+#  define alloca __builtin_alloca
+#endif
+
 #ifndef FAST_HYPOT
 #  define FAST_HYPOT hypot
 #endif
